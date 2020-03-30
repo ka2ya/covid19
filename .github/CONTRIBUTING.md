@@ -55,7 +55,7 @@ issueを気軽に立ててください。しかしながら、県公式として
 
 
 ## 開発に関する情報
-* 開発サイト hhttps://frosty-lamarr-66d313.netlify.com/
+* 開発サイト https://frosty-lamarr-66d313.netlify.com/
 
 * 本番サイト https://stopcovid19.pref.shiga.jp/
 
