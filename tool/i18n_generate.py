@@ -14,7 +14,7 @@ import pathlib
 # 現在，以下のファイルからは正しく生成できません
 # components\cards\ConsultationDeskReportsNumberCard.i18n.json
 # components\cards\TelephoneAdvisoryReportsNumberCard.i18n.json
-# components\cards\TestedNumberCard.i18n.json
+# components\cards\TestedNumberCard.i18n.json 
 ######
 
 # チェックするディレクトリのリスト
