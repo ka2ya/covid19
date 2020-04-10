@@ -93,7 +93,95 @@ const consultsPromise = new Promise(resolve => {
   })
 })
 
-Promise.all([countPromise, attrPromise, consultsPromise]).then(() => {
+const testsPromise = new Promise(resolve => {
+  getCSV('TESTS').then(res => {
+    let i = 0
+    for (i = 0; i < res.length; i++) {
+      if (res[i]['小計'] === '') {
+        break
+      }
+    }
+
+    res.splice(i, res.length - 1)
+
+    res.forEach(e => {
+      const arr = e['日付'].split('/')
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
+
+      e['小計'] = Number(e['小計'])
+    })
+
+    const tests = {} // patients section
+    tests.data = res
+    tests.date = moment().format('YYYY\\/MM\\/DD HH:mm')
+
+    data.consults = tests
+    resolve()
+  })
+})
+
+const querentsPromise = new Promise(resolve => {
+  getCSV('QUERENTS').then(res => {
+    let i = 0
+    for (i = 0; i < res.length; i++) {
+      if (res[i]['小計'] === '') {
+        break
+      }
+    }
+
+    res.splice(i, res.length - 1)
+
+    res.forEach(e => {
+      const arr = e['日付'].split('/')
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
+
+      const filelds = [
+        '大津保健所',
+        '草津保健所',
+        '甲賀保健所',
+        '東近江保健所',
+        '彦根保健所',
+        '長浜保健所',
+        '高島保健所',
+        '本庁'
+      ]
+      let sum = 0
+      filelds.forEach(f => {
+        e[f] = Number(e[f])
+        sum += e[f]
+      })
+
+      e['小計'] = sum
+    })
+
+    const querents = {} // patients section
+    querents.data = res
+    querents.date = moment().format('YYYY\\/MM\\/DD HH:mm')
+
+    data.querents = querents
+    resolve()
+  })
+})
+
+Promise.all([
+  countPromise,
+  attrPromise,
+  consultsPromise,
+  testsPromise,
+  querentsPromise
+]).then(() => {
   fs.writeFileSync('./data/data.json', JSON.stringify(data))
 })
 
