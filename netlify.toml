@@ -1,10 +1,10 @@
+[build]
+  command = 'mkdir -p dist && yarn && npm run generate:deploy'
+  base = 'dist/'
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
 [[headers]]
   for = "/*"
-
-[build]
-  command = 'mkdir -p dist && npm run generate:deploy'
-  base = 'dist/'
