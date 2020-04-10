@@ -70,6 +70,7 @@ typings/
 
 # Nuxt generate
 dist/*
+!dist/.gitkeep
 # data
 !dist/data
 
@@ -96,6 +97,3 @@ sw.*
 
 # OGP images
 ogp/*
-
-# build assets
-dist

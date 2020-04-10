@@ -1,6 +1,6 @@
 [build]
-  command = 'ls -la && mkdir -p dist && ls -la && yarn && npm run generate:deploy'
-  base = 'dist/'
+  command = 'ls -la && yarn && npm run generate:deploy'
+  base = 'dist'
 
 [[redirects]]
   from = "/*"
