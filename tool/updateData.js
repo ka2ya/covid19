@@ -4,6 +4,8 @@ const getCSV = require('./getCSV.js')
 require('dotenv').config()
 const data = {} // Final product
 
+// Generate /data/data.json.
+
 const attrPromise = new Promise(resolve => {
   getCSV('POSITIVE_ATTRIBUTE').then(res => {
     res.forEach(e => {
@@ -16,11 +18,11 @@ const attrPromise = new Promise(resolve => {
         ('00' + arr[2]).slice(-2) +
         'T08:00:00.000Z'
       delete e['']
-    })
+    }) // Format each date
 
     const patients = {} // patients section
     patients.data = res
-    patients.date = moment().format('YYYY\\/MM\\/DD HH:mm')
+    patients.date = moment().format('YYYY\\/MM\\/DD HH:mm') // Update date
 
     data.patients = patients
     resolve()
@@ -48,10 +50,10 @@ const countPromise = new Promise(resolve => {
         ('00' + arr[2]).slice(-2) +
         'T08:00:00.000Z'
 
-      e['小計'] = Number(e['小計'])
+      e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
 
-    const patientsSummary = {} // patients section
+    const patientsSummary = {}
     patientsSummary.data = res
     patientsSummary.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
@@ -81,10 +83,10 @@ const consultsPromise = new Promise(resolve => {
         ('00' + arr[2]).slice(-2) +
         'T08:00:00.000Z'
 
-      e['小計'] = Number(e['小計'])
+      e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
 
-    const consults = {} // patients section
+    const consults = {}
     consults.data = res
     consults.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
@@ -114,10 +116,10 @@ const testsPromise = new Promise(resolve => {
         ('00' + arr[2]).slice(-2) +
         'T08:00:00.000Z'
 
-      e['小計'] = Number(e['小計'])
+      e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
 
-    const tests = {} // patients section
+    const tests = {}
     tests.data = res
     tests.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
@@ -159,14 +161,14 @@ const querentsPromise = new Promise(resolve => {
       ]
       let sum = 0
       filelds.forEach(f => {
-        e[f] = Number(e[f])
+        e[f] = Number(e[f]) // 型を変えておかないと+演算子が連結と解釈される
         sum += e[f]
       })
 
       e['小計'] = sum
     })
 
-    const querents = {} // patients section
+    const querents = {}
     querents.data = res
     querents.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
@@ -185,6 +187,7 @@ Promise.all([
   fs.writeFileSync('./data/data.json', JSON.stringify(data))
 })
 
+// Generate /data/news.json.
 const news = {}
 new Promise(resolve => {
   getCSV('NEWS').then(res => {
