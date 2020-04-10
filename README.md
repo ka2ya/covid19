@@ -1,4 +1,4 @@
-# 滋賀県 新型コロナウイルス感染症対策サイト aaa
+# 滋賀県 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/shiga-pref-org/covid19/workflows/production%20deploy/badge.svg)
 
