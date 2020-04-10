@@ -4,9 +4,7 @@
   status = 404
 [[headers]]
   for = "/*"
-  [headers.values]
-    cache-control = 'public'
 
-[[build]]
-  command = 'npm run generate'
-  base = '/dist'
+[build]
+  command = 'mkdir -p dist && npm run generate:deploy'
+  base = 'dist/'
