@@ -4,7 +4,7 @@ const getCSV = require('./getCSV.js')
 require('dotenv').config()
 const data = {} // Final product
 
-const attr = new Promise(resolve => {
+const attrPromise = new Promise(resolve => {
   getCSV('POSITIVE_ATTRIBUTE').then(res => {
     res.forEach(e => {
       const arr = e['リリース日'].split('/')
@@ -27,7 +27,7 @@ const attr = new Promise(resolve => {
   })
 })
 
-const count = new Promise(resolve => {
+const countPromise = new Promise(resolve => {
   getCSV('POSITIVE_COUNT').then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
@@ -60,7 +60,7 @@ const count = new Promise(resolve => {
   })
 })
 
-const consults = new Promise(resolve => {
+const consultsPromise = new Promise(resolve => {
   getCSV('CONSULTS').then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
@@ -84,16 +84,16 @@ const consults = new Promise(resolve => {
       e['小計'] = Number(e['小計'])
     })
 
-    const patientsSummary = {} // patients section
+    const consults = {} // patients section
     consults.data = res
-    patientsSummary.date = moment().format('YYYY\\/MM\\/DD HH:mm')
+    consults.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
-    data.patients_summary = patientsSummary
+    data.consults = consults
     resolve()
   })
 })
 
-Promise.all([count, attr]).then(() => {
+Promise.all([countPromise, attrPromise, consultsPromise]).then(() => {
   fs.writeFileSync('./data/data.json', JSON.stringify(data))
 })
 
