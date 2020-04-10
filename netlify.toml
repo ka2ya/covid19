@@ -1,5 +1,5 @@
 [build]
-  command = 'ls -la && yarn && npm run generate:deploy'
+  command = 'mkdir -p dist && yarn && npm run generate:deploy'
   base = 'dist'
 
 [[redirects]]

@@ -69,10 +69,7 @@ typings/
 .nuxt
 
 # Nuxt generate
-dist/*
-!dist/.gitkeep
-# data
-!dist/data
+dist
 
 # vuepress build output
 .vuepress/dist
