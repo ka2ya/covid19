@@ -1,7 +1,3 @@
-[build]
-  command = 'mkdir -p dist && pwd && cd .. && yarn && npm run generate:deploy'
-  base = 'dist'
-
 [[redirects]]
   from = "/*"
   to = "/404.html"
