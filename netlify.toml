@@ -6,4 +6,7 @@
   for = "/*"
   [headers.values]
     cache-control = 'public'
-  
+
+[[build]]
+  command = 'npm run generate'
+  base = '/dist'
