@@ -1,7 +1,7 @@
 <template>
   <div class="Parent">
     <h2 class="Parent-Heading">
-      {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
+      {{ $t('新型コロナウイルス感染症対応についてのお願い') }}
     </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<i18n src="./parent.i18n.json"></i18n>
+<i18n src="./citizens.i18n.json"></i18n>
 
 <script>
 import TextCard from '@/components/TextCard.vue'
@@ -48,7 +48,12 @@ export default {
         },
         {
           title: `3. ${this.$t('その他')}`,
-          body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
+          body:
+            `<ul><li><a href="https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/yakuz/309252.html#a03">${this.$t(
+              '県民の皆様へ'
+            )}</a>(` +
+            this.$t('滋賀県健康医療福祉部薬務感染症対策課') +
+            ')</li></ul>'
         }
       ]
     }
