@@ -4,10 +4,7 @@
   status = 404
 [[headers]]
   for = "/*"
-  [headers.values]
-    cache-control = 'public'
 
 [build]
   command = 'yarn && npm run generate:deploy'
   publish = 'dist'
-
