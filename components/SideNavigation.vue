@@ -122,19 +122,21 @@ export default {
         {
           icon: 'parent',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
+          link:
+            'https://www.pref.shiga.lg.jp/edu/school/hokentaiiku/anzenkyusyoku/hoken/310418.html'
         },
-        /* {
+        {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
-        }, 
+          link: '/citizens'
+        },
         {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          link:
+            'https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/yakuzi/309252.html#a04',
           divider: true
-        }, */
+        },
         {
           title: this.$t('滋賀県新型コロナウイルス感染症対策本部会議等'),
           link:
@@ -156,9 +158,10 @@ export default {
             'https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/yakuzi/310410.html'
         },
         {
-          title: this.$t('LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」'),
-          link:
-            'https://www.pref.shiga.lg.jp/ippan/kurashi/ict/310749.html'
+          title: this.$t(
+            'LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」'
+          ),
+          link: 'https://www.pref.shiga.lg.jp/ippan/kurashi/ict/310749.html'
         },
         {
           title: this.$t('当サイトについて'),
