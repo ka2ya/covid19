@@ -9,6 +9,7 @@
     <v-row class="DataBlock">
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <consults-number-card />
     </v-row>
   </div>
 </template>
@@ -23,6 +24,7 @@ import Data from '@/data/data.json'
 import News from '@/data/news.json'
 
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConsultsNumberCard from '@/components/cards/ConsultsNumberCard'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 
 export default {
@@ -30,7 +32,8 @@ export default {
     PageHeader,
     WhatsNew,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard
+    ConfirmedCasesAttributesCard,
+    ConsultsNumberCard
   },
   data() {
     // 退院者グラフ
