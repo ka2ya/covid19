@@ -1,11 +1,9 @@
 const fs = require('fs')
 const moment = require('moment')
 const getCSV = require('./getCSV.js')
-require('dotenv').config()
 const data = {} // Final product
 
 // Generate /data/data.json.
-
 const attrPromise = new Promise(resolve => {
   getCSV('POSITIVE_ATTRIBUTE').then(res => {
     res.forEach(e => {
