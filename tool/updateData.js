@@ -129,7 +129,7 @@ const testsPromise = new Promise(resolve => {
     tests.data = res
     tests.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
-    data.consults = tests
+    data.tests = tests
     resolve()
   })
 })
