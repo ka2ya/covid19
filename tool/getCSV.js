@@ -2,7 +2,7 @@ const request = require('request')
 
 const getCSV = function(csvUrl) {
   const options = {
-    csvUrl,
+    url: csvUrl,
     method: 'GET',
     followAllRedirects: true // 3xxが返ってきたとき、リダイレクトする。
   }
