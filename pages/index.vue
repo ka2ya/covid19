@@ -40,7 +40,6 @@ export default {
     // const fatalitiesTable = formatTable(
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
-
     const data = {
       Data,
       /* dischargesGraph, */
