@@ -10,6 +10,7 @@
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
       <consults-number-card />
+      <tests-number-card />
     </v-row>
   </div>
 </template>
@@ -26,6 +27,7 @@ import News from '@/data/news.json'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConsultsNumberCard from '@/components/cards/ConsultsNumberCard'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import TestsNumberCard from '@/components/cards/TestsNumberCard'
 
 export default {
   components: {
@@ -33,7 +35,8 @@ export default {
     WhatsNew,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    ConsultsNumberCard
+    ConsultsNumberCard,
+    TestsNumberCard
   },
   data() {
     // 退院者グラフ
