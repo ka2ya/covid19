@@ -31,7 +31,6 @@ export default {
   },
   data() {
     // 受診数グラフ
-    console.log(Data)
     const consultsGraph = formatGraph(Data.consults.data)
 
     const data = {
