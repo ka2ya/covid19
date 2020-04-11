@@ -42,6 +42,7 @@ export default {
     // )
     const data = {
       Data,
+      /* dischargesGraph, */
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('県内の最新感染動向'),
