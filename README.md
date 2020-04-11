@@ -46,7 +46,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ```bash
 # install dependencies
 $ yarn install
-
+$ yarn updateData #<-This script downloads data anc creatte json at /data
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
