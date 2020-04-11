@@ -4,8 +4,10 @@ const getCSV = require('./getCSV.js')
 const data = {} // Final product
 
 // Generate /data/data.json.
+const attrCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=1551840287&single=true&output=csv'
 const attrPromise = new Promise(resolve => {
-  getCSV('POSITIVE_ATTRIBUTE').then(res => {
+  getCSV(attrCSVUrl).then(res => {
     res.forEach(e => {
       const arr = e['リリース日'].split('/')
       e['リリース日'] =
@@ -27,8 +29,10 @@ const attrPromise = new Promise(resolve => {
   })
 })
 
+const countCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=1767213847&single=true&output=csv'
 const countPromise = new Promise(resolve => {
-  getCSV('POSITIVE_COUNT').then(res => {
+  getCSV(countCSVUrl).then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
       if (res[i]['小計'] === '') {
@@ -60,8 +64,10 @@ const countPromise = new Promise(resolve => {
   })
 })
 
+const counsultsCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=274992458&single=true&output=csv'
 const consultsPromise = new Promise(resolve => {
-  getCSV('CONSULTS').then(res => {
+  getCSV(counsultsCSVUrl).then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
       if (res[i]['小計'] === '') {
@@ -93,8 +99,10 @@ const consultsPromise = new Promise(resolve => {
   })
 })
 
+const testsCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=1665332061&single=true&output=csv'
 const testsPromise = new Promise(resolve => {
-  getCSV('TESTS').then(res => {
+  getCSV(testsCSVUrl).then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
       if (res[i]['小計'] === '') {
@@ -125,9 +133,10 @@ const testsPromise = new Promise(resolve => {
     resolve()
   })
 })
-
+const querentsCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=469162705&single=true&output=csv'
 const querentsPromise = new Promise(resolve => {
-  getCSV('QUERENTS').then(res => {
+  getCSV(querentsCSVUrl).then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
       if (res[i]['小計'] === '') {
@@ -187,8 +196,10 @@ Promise.all([
 
 // Generate /data/news.json.
 const news = {}
+const newsCSVUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=444294091&single=true&output=csv'
 new Promise(resolve => {
-  getCSV('NEWS').then(res => {
+  getCSV(newsCSVUrl).then(res => {
     news.newsItems = res
     resolve()
   })
