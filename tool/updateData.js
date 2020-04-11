@@ -139,7 +139,7 @@ const querentsPromise = new Promise(resolve => {
   getCSV(querentsCSVUrl).then(res => {
     let i = 0
     for (i = 0; i < res.length; i++) {
-      if (res[i]['小計'] === '') {
+      if (res[i]['本庁'] === '') {
         break
       }
     }
@@ -177,8 +177,11 @@ const querentsPromise = new Promise(resolve => {
 
     const querents = {}
     querents.data = res
-    querents.date = moment().format('YYYY\\/MM\\/DD HH:mm')
-
+    const earlierDate = Math.min(
+      new Date(),
+      new Date(res[res.length - 1]['日付'])
+    )
+    querents.date = moment(earlierDate).format('YYYY\\/MM\\/DD HH:mm')
     data.querents = querents
     resolve()
   })
