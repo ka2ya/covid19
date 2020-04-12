@@ -12,6 +12,7 @@
       <consults-number-card />
       <tests-number-card />
       <querents-number-card />
+      <line-invitation-card />
     </v-row>
   </div>
 </template>
@@ -30,6 +31,7 @@ import ConsultsNumberCard from '@/components/cards/ConsultsNumberCard'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestsNumberCard from '@/components/cards/TestsNumberCard'
 import QuerentsNumberCard from '@/components/cards/QuerentsNumberCard'
+import LineInvitationCard from '@/components/cards/LineInvitationCard'
 
 export default {
   components: {
@@ -39,7 +41,8 @@ export default {
     ConfirmedCasesAttributesCard,
     ConsultsNumberCard,
     TestsNumberCard,
-    QuerentsNumberCard
+    QuerentsNumberCard,
+    LineInvitationCard
   },
   data() {
     // 退院者グラフ
