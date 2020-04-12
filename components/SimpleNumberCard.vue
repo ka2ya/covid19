@@ -9,9 +9,9 @@
       <span class="SimpleNumber" v-text="number.toLocaleString()" />
       <span class="SimpleNumberUnit">{{ unit }}</span>
     </p>
-    <p class="SimpleNumberDescription">
+    <div class="SimpleNumberDescription">
       <slot />
-    </p>
+    </div>
   </data-view>
 </template>
 
