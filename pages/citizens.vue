@@ -51,16 +51,16 @@ export default {
           body:
             `<ul><li><a href="https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/yakuz/309252.html#a03">${this.$t(
               '県民の皆様へ'
-            )}</a>(` +
+            )}</a>（` +
             this.$t('滋賀県健康医療福祉部薬務感染症対策課') +
-            ')</li></ul>'
+            '）</li></ul>'
         }
       ]
     }
   },
   head() {
     return {
-      title: 'お子様をお持ちの皆様へ'
+      title: '教育委員会からのお知らせ'
     }
   }
 }
