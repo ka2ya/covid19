@@ -12,6 +12,16 @@
       :date="date"
     >
       <p>
+        {{
+          $t(
+            'LINEを通じてあなたの状態に合わせた新型コロナウイルスに関する情報をお知らせしています。'
+          )
+        }}
+        <a href="https://www.pref.shiga.lg.jp/ippan/kurashi/ict/310749.html">{{
+          $t('詳しくはこちら')
+        }}</a>
+      </p>
+      <p :style="{ textAlign: 'center' }">
         <a href="https://lin.ee/9YlwvHu">
           <img
             :style="{ border: '0', height: '36px' }"
@@ -19,11 +29,6 @@
             :alt="$t('LINEの友だち追加')"
           />
         </a>
-      </p>
-      <p>
-        <a href="https://www.pref.shiga.lg.jp/ippan/kurashi/ict/310749.html">{{
-          $t('LINE公式アカウントについて')
-        }}</a>
       </p>
     </simple-number-card>
   </v-col>

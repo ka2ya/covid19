@@ -9,9 +9,7 @@
       <span class="SimpleNumber" v-text="number.toLocaleString()" />
       <span class="SimpleNumberUnit">{{ unit }}</span>
     </p>
-    <div class="SimpleNumberDescription">
-      <slot />
-    </div>
+    <slot />
   </data-view>
 </template>
 
@@ -23,8 +21,7 @@
   ::v-deep h3 {
     width: 100%;
   }
-  .SimpleNumberDataContainer,
-  .SimpleNumberDescription {
+  .SimpleNumberDataContainer {
     text-align: center;
   }
   .SimpleNumber {
