@@ -22,6 +22,8 @@
   </v-col>
 </template>
 
+<i18n>{}</i18n>
+
 <script>
 import Data from '@/data/data.json'
 import SimpleNumberCard from '@/components/SimpleNumberCard.vue'
@@ -33,7 +35,7 @@ export default {
   data() {
     const data = {
       // NOTE: This is mock
-      lineFriends: Data.lineFriends || 1000000
+      lineFriends: Data.lineFriends || 100000
     }
     return data
   }
