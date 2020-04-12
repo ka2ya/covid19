@@ -60,7 +60,7 @@ export default {
   },
   head() {
     return {
-      title: 'お子様をお持ちの皆様へ'
+      title: '教育委員会からのお知らせ'
     }
   }
 }

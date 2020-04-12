@@ -121,7 +121,7 @@ export default {
         }, */
         {
           icon: 'parent',
-          title: this.$t('お子様をお持ちの皆様へ'),
+          title: this.$t('教育委員会からのお知らせ'),
           link:
             'https://www.pref.shiga.lg.jp/edu/school/hokentaiiku/anzenkyusyoku/hoken/310418.html'
         },
