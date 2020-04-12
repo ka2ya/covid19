@@ -31,12 +31,6 @@
     margin-left: 5px;
     font-size: 32px;
   }
-  .Graph-Desc {
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 12px;
-    color: $gray-3;
-  }
 }
 </style>
 
