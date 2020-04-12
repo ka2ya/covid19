@@ -32,8 +32,8 @@ export default {
   },
   data() {
     const data = {
-      // TODO: これはモックデータ
-      lineFriends: Data.lineFriends || 100000
+      // NOTE: This is mock
+      lineFriends: Data.lineFriends || 1000000
     }
     return data
   }
