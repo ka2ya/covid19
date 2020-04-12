@@ -132,7 +132,7 @@ export default {
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
+          title: this.$t('事業者の皆様・働く皆様へ'),
           link:
             'https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/yakuzi/309252.html#a04',
           divider: true
