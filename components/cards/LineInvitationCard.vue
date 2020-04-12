@@ -7,9 +7,9 @@
         )
       "
       :title-id="'line-invitation'"
-      :number="lineFriends"
+      :number="number"
       :unit="$t('人')"
-      :date="'1900/01/01'"
+      :date="date"
     >
       <p>
         <a href="https://lin.ee/9YlwvHu">
@@ -44,7 +44,8 @@ export default {
   data() {
     const data = {
       // NOTE: This is mock
-      lineFriends: Data.lineFriends || 100000
+      number: Data.lineFriends?.value || 123456,
+      date: Data.lineFriends?.date || '20xx/yy/zz hh:mm'
     }
     return data
   }
