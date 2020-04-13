@@ -194,7 +194,7 @@ Promise.all([
   testsPromise,
   querentsPromise
 ]).then(() => {
-  data.latestUpdate = moment().format('YYYY\\/MM\\/DD HH:mm')
+  data.lastUpdate = moment().format('YYYY\\/MM\\/DD HH:mm')
   fs.writeFileSync('./data/data.json', JSON.stringify(data, null, 2))
 })
 
