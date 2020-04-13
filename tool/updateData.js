@@ -206,7 +206,6 @@ const othersPromise = new Promise(resolve => {
           break
       }
     })
-    console.log('LINE:' + JSON.stringify(line))
     data.lineFriends = line
     resolve()
   })
