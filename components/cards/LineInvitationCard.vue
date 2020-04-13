@@ -57,9 +57,9 @@ export default {
   },
   data() {
     const data = {
-      // NOTE: This is mock
-      number: Data.lineFriends?.value || 123456,
-      date: Data.lineFriends?.date || '20xx/yy/zz hh:mm'
+      // TODO: hardcoded!
+      number: Data.lineFriends?.value || 67533,
+      date: Data.lineFriends?.date || '2020/04/13 15:53'
     }
     return data
   }
