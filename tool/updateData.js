@@ -1,7 +1,9 @@
 const fs = require('fs')
-const moment = require('moment')
+const moment = require('moment-timezone')
 const getCSV = require('./getCSV.js')
 const data = {} // Final product
+
+moment.tz.setDefault('Asia/Tokyo')
 
 // Generate /data/data.json.
 const attrCSVUrl =
@@ -194,6 +196,7 @@ Promise.all([
   testsPromise,
   querentsPromise
 ]).then(() => {
+  data.lastUpdate = moment().format('YYYY\\/MM\\/DD HH:mm')
   fs.writeFileSync('./data/data.json', JSON.stringify(data, null, 2))
 })
 
