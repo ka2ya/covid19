@@ -3,7 +3,7 @@
     <simple-number-card
       :title="
         $t(
-          'LINE公式アカウント「新型コロナ対策パーソナルサポート（行政）」友達数'
+          'LINE公式アカウント「新型コロナ対策パーソナルサポート（行政）」友だち数'
         )
       "
       :title-id="'line-invitation'"
