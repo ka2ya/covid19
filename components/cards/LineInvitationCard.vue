@@ -58,7 +58,7 @@ export default {
   data() {
     const number = parseInt(Data.lineFriends.value, 10)
     const data = {
-      number: Number.isNaN(number) ? '-' : number,
+      number: Number.isNaN(number) ? 0 : number,
       date: Data.lineFriends.date
     }
     return data
