@@ -24,7 +24,7 @@ const attrPromise = new Promise(resolve => {
 
     const patients = {} // patients section
     patients.data = res
-    patients.date = moment().format('YYYY\\/MM\\/DD hh:mm') // Update date
+    patients.date = moment().format('YYYY\\/MM\\/DD HH:mm') // Update date
 
     data.patients = patients
     resolve()
@@ -59,7 +59,7 @@ const countPromise = new Promise(resolve => {
 
     const patientsSummary = {}
     patientsSummary.data = res
-    patientsSummary.date = moment().format('YYYY\\/MM\\/DD hh:mm')
+    patientsSummary.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
     data.patients_summary = patientsSummary
     resolve()
@@ -94,7 +94,7 @@ const consultsPromise = new Promise(resolve => {
 
     const consults = {}
     consults.data = res
-    consults.date = moment().format('YYYY\\/MM\\/DD hh:mm')
+    consults.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
     data.consults = consults
     resolve()
@@ -129,7 +129,7 @@ const testsPromise = new Promise(resolve => {
 
     const tests = {}
     tests.data = res
-    tests.date = moment().format('YYYY\\/MM\\/DD hh:mm')
+    tests.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
     data.tests = tests
     resolve()
@@ -183,7 +183,7 @@ const querentsPromise = new Promise(resolve => {
       new Date(),
       new Date(res[res.length - 1]['日付'])
     )
-    querents.date = moment(earlierDate).format('YYYY\\/MM\\/DD hh:mm')
+    querents.date = moment(earlierDate).format('YYYY\\/MM\\/DD HH:mm')
     data.querents = querents
     resolve()
   })
@@ -196,7 +196,7 @@ Promise.all([
   testsPromise,
   querentsPromise
 ]).then(() => {
-  data.lastUpdate = moment().format('YYYY\\/MM\\/DD hh:mm')
+  data.lastUpdate = moment().format('YYYY\\/MM\\/DD HH:mm')
   fs.writeFileSync('./data/data.json', JSON.stringify(data, null, 2))
 })
 
