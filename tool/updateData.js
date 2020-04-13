@@ -189,12 +189,36 @@ const querentsPromise = new Promise(resolve => {
   })
 })
 
+const othersUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkSimAq6YKVyhqHy7wyEvL6-TeGmiNntRhP3iK5041mD900GYcjUKylMZIAJEIZzew9pCGfQ1AA-Ge/pub?gid=735284232&single=true&output=csv'
+
+const othersPromise = new Promise(resolve => {
+  getCSV(othersUrl).then(res => {
+    const line = {}
+
+    res.forEach(item => {
+      switch (item.type) {
+        case 'line_friends':
+          line.value = item.value
+          break
+        case 'line_friends_date':
+          line.date = item.value
+          break
+      }
+    })
+    console.log('LINE:' + JSON.stringify(line))
+    data.lineFriends = line
+    resolve()
+  })
+})
+
 Promise.all([
   countPromise,
   attrPromise,
   consultsPromise,
   testsPromise,
-  querentsPromise
+  querentsPromise,
+  othersPromise
 ]).then(() => {
   data.lastUpdate = moment().format('YYYY\\/MM\\/DD HH:mm')
   fs.writeFileSync('./data/data.json', JSON.stringify(data, null, 2))
