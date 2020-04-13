@@ -57,9 +57,8 @@ export default {
   },
   data() {
     const data = {
-      // TODO: hardcoded!
-      number: Data.lineFriends?.value || 67533,
-      date: Data.lineFriends?.date || '2020/04/13 15:53'
+      number: Data.lineFriends.value,
+      date: Data.lineFriends.date
     }
     return data
   }
