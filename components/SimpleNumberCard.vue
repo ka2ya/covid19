@@ -6,7 +6,10 @@
     :date="date"
   >
     <p class="SimpleNumberDataContainer">
-      <span class="SimpleNumber" v-text="number.toLocaleString()" />
+      <span
+        class="SimpleNumber"
+        v-text="typeof number === 'number' ? number.toLocaleString() : number"
+      />
       <span class="SimpleNumberUnit">{{ unit }}</span>
     </p>
     <slot />

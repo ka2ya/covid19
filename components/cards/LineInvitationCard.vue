@@ -56,8 +56,9 @@ export default {
     SimpleNumberCard
   },
   data() {
+    const number = parseInt(Data.lineFriends.value, 10)
     const data = {
-      number: Data.lineFriends.value,
+      number: Number.isNaN(number) ? '-' : number,
       date: Data.lineFriends.date
     }
     return data
