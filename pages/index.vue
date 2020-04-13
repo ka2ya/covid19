@@ -9,6 +9,9 @@
     <v-row class="DataBlock">
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <consults-number-card />
+      <tests-number-card />
+      <querents-number-card />
     </v-row>
   </div>
 </template>
@@ -23,14 +26,20 @@ import Data from '@/data/data.json'
 import News from '@/data/news.json'
 
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConsultsNumberCard from '@/components/cards/ConsultsNumberCard'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import TestsNumberCard from '@/components/cards/TestsNumberCard'
+import QuerentsNumberCard from '@/components/cards/QuerentsNumberCard'
 
 export default {
   components: {
     PageHeader,
     WhatsNew,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard
+    ConfirmedCasesAttributesCard,
+    ConsultsNumberCard,
+    TestsNumberCard,
+    QuerentsNumberCard
   },
   data() {
     // 退院者グラフ
@@ -42,6 +51,7 @@ export default {
     // )
     const data = {
       Data,
+      /* dischargesGraph, */
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('県内の最新感染動向'),

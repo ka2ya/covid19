@@ -1,10 +1,8 @@
 const request = require('request')
 
-const getCSV = function(csvType) {
-  require('dotenv').config()
-  const url = process.env[csvType + '_CSV_URL']
+const getCSV = function(csvUrl) {
   const options = {
-    url,
+    url: csvUrl,
     method: 'GET',
     followAllRedirects: true // 3xxが返ってきたとき、リダイレクトする。
   }

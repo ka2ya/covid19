@@ -46,7 +46,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ```bash
 # install dependencies
 $ yarn install
-
+$ yarn updateData #<-This script downloads data anc creatte json at /data
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
@@ -80,4 +80,4 @@ $ docker-compose run --rm app yarn install
 
  `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.pref.shiga.jp/ が更新されます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://frosty-lamarr-66d313.netlify.com/ が更新されます。
+`development` ブランチに対してプルリクエストを作成すると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、プレビュー用の一時的なURL ( `https://deploy-preview-123--frosty-lamarr-66d313.netlify.com/` など)が発行されます。
