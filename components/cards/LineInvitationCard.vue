@@ -3,7 +3,7 @@
     <simple-number-card
       :title="
         $t(
-          'LINE公式アカウント「新型コロナ対策パーソナルサポート（行政）」友だち数'
+          'LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数'
         )
       "
       :title-id="'line-invitation'"
@@ -37,7 +37,7 @@
 <i18n>
 {
   "ja": {
-    "LINE公式アカウント「新型コロナ対策パーソナルサポート（行政）」友だち数": "LINE公式アカウント「新型コロナ対策パーソナルサポート（行政）」友だち数",
+    "LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数": "LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数",
     "LINEを通じてあなたの状態に合わせた新型コロナウイルスに関する情報をお知らせしています。": "LINEを通じてあなたの状態に合わせた新型コロナウイルスに関する情報をお知らせしています。",
     "詳しくはこちら": "詳しくはこちら",
     "LINEの友だち追加": "LINEの友だち追加"
@@ -56,10 +56,10 @@ export default {
     SimpleNumberCard
   },
   data() {
+    const number = parseInt(Data.lineFriends.value, 10)
     const data = {
-      // TODO: hardcoded!
-      number: Data.lineFriends?.value || 67533,
-      date: Data.lineFriends?.date || '2020/04/13 15:53'
+      number: Number.isNaN(number) ? 0 : number,
+      date: Data.lineFriends.date
     }
     return data
   }
