@@ -194,7 +194,7 @@ Promise.all([
   testsPromise,
   querentsPromise
 ]).then(() => {
-  fs.writeFileSync('./data/data.json', JSON.stringify(data))
+  fs.writeFileSync('./data/data.json', JSON.stringify(data, null, 2))
 })
 
 // Generate /data/news.json.
@@ -207,5 +207,5 @@ new Promise(resolve => {
     resolve()
   })
 }).then(() => {
-  fs.writeFileSync('./data/news.json', JSON.stringify(news))
+  fs.writeFileSync('./data/news.json', JSON.stringify(news, null, 2))
 })
