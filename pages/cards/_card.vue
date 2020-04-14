@@ -125,7 +125,7 @@ export default {
     ConsultsNumberCard,
     TestsNumberCard,
     QuerentsNumberCard,
-    LineInvitationCard,
+    LineInvitationCard
 
     // ConfirmedCasesDetailsCard,
     // TestedNumberCard,
@@ -146,12 +146,15 @@ export default {
       case 'number-of-consultation':
         title = this.$t('帰国者・接触者専門外来受診件数')
         updatedAt = Data.consults.date
-        break;
+        break
       case 'number-of-tests':
         title = this.$t('PCR検査実施件数')
         updatedAt = Data.tests.date
+        break
       case 'line-invitation':
-        title = this.$t('LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数')
+        title = this.$t(
+          'LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数'
+        )
         updatedAt = Data.lineFriends.date
         break
 
