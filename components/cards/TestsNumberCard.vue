@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('PCR検査実施件数')"
-      :title-id="'number-of-consultation'"
+      :title-id="'number-of-tests'"
       :chart-id="'time-bar-chart-consulation'"
       :chart-data="testsGraph"
       :date="Data.tests.date"

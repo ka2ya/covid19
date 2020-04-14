@@ -1,29 +1,41 @@
 <template>
   <div>
-    <confirmed-cases-details-card
-      v-if="this.$route.params.card == 'details-of-confirmed-cases'"
-    />
     <confirmed-cases-number-card
-      v-else-if="this.$route.params.card == 'number-of-confirmed-cases'"
+      v-if="this.$route.params.card == 'number-of-confirmed-cases'"
     />
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
     />
-    <tested-number-card
-      v-else-if="this.$route.params.card == 'number-of-tested'"
+    <consults-number-card
+      v-else-if="this.$route.params.card == 'number-of-consultation'"
     />
-    <telephone-advisory-reports-number-card
+    <tests-number-card
+      v-else-if="this.$route.params.card == 'number-of-tests'"
+    />
+    <querents-number-card
+      v-else-if="this.$route.params.card == 'number-of-querents'"
+    />
+    <line-invitation-card
+      v-else-if="this.$route.params.card == 'line-invitation'"
+    />
+    <!-- <tested-number-card
+      v-else-if="this.$route.params.card == 'number-of-tested'"
+    /> -->
+    <!-- <confirmed-cases-details-card
+      v-else-if="this.$route.params.card == 'details-of-confirmed-cases'"
+    /> -->
+    <!-- <telephone-advisory-reports-number-card
       v-else-if="
         this.$route.params.card ==
           'number-of-reports-to-covid19-telephone-advisory-center'
       "
-    />
-    <consultation-desk-reports-number-card
+    /> -->
+    <!-- <consultation-desk-reports-number-card
       v-else-if="
         this.$route.params.card ==
           'number-of-reports-to-covid19-consultation-desk'
       "
-    />
+    /> -->
   </div>
 </template>
 
@@ -94,29 +106,35 @@
 
 <script>
 import Data from '@/data/data.json'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import ConsultsNumberCard from '@/components/cards/ConsultsNumberCard.vue'
+import TestsNumberCard from '@/components/cards/TestsNumberCard.vue'
+import QuerentsNumberCard from '@/components/cards/QuerentsNumberCard.vue'
+import LineInvitationCard from '@/components/cards/LineInvitationCard.vue'
+
+// import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+// import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+// import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 
 export default {
   components: {
-    ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard
+    ConsultsNumberCard,
+    TestsNumberCard,
+    QuerentsNumberCard,
+    LineInvitationCard,
+
+    // ConfirmedCasesDetailsCard,
+    // TestedNumberCard,
+    // TelephoneAdvisoryReportsNumberCard,
+    // ConsultationDeskReportsNumberCard
   },
   data() {
     let title, updatedAt
     switch (this.$route.params.card) {
-      case 'details-of-confirmed-cases':
-        title = this.$t('検査陽性者の状況')
-        updatedAt = Data.inspections_summary.date
-        break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
         updatedAt = Data.patients.date
@@ -125,18 +143,34 @@ export default {
         title = this.$t('陽性患者の属性')
         updatedAt = Data.patients.date
         break
-      case 'number-of-tested':
-        title = this.$t('検査実施数')
-        updatedAt = Data.inspections_summary.date
+      case 'number-of-consultation':
+        title = this.$t('帰国者・接触者専門外来受診件数')
+        updatedAt = Data.consults.date
+        break;
+      case 'number-of-tests':
+        title = this.$t('PCR検査実施件数')
+        updatedAt = Data.tests.date
+      case 'line-invitation':
+        title = this.$t('LINE公式アカウント「滋賀県-新型コロナ対策パーソナルサポート」友だち数')
+        updatedAt = Data.lineFriends.date
         break
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        title = this.$t('新型コロナコールセンター相談件数')
-        updatedAt = Data.contacts.date
-        break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        title = this.$t('新型コロナ受診相談窓口相談件数')
-        updatedAt = Data.querents.date
-        break
+
+      // case 'details-of-confirmed-cases':
+      //   title = this.$t('検査陽性者の状況')
+      //   updatedAt = Data.inspections_summary.date
+      //   break
+      // case 'number-of-tested':
+      //   title = this.$t('検査実施数')
+      //   updatedAt = Data.inspections_summary.date
+      //   break
+      // case 'number-of-reports-to-covid19-telephone-advisory-center':
+      //   title = this.$t('新型コロナコールセンター相談件数')
+      //   updatedAt = Data.contacts.date
+      //   break
+      // case 'number-of-reports-to-covid19-consultation-desk':
+      //   title = this.$t('新型コロナ受診相談窓口相談件数')
+      //   updatedAt = Data.querents.date
+      //   break
     }
 
     const data = {

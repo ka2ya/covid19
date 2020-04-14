@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('帰国者・接触者相談センター相談状況')"
-      :title-id="'number-of-consultation'"
+      :title-id="'number-of-querents'"
       :chart-id="'time-bar-chart-consulation'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
