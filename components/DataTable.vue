@@ -15,10 +15,12 @@
       class="cardTable"
     />
     <div class="note">
-      <template v-if="isVisibleScroll">
-        {{ $t('※横にスクロールできます') }}
-      </template>
-      {{ $t('') }}
+      <ul>
+        <template v-if="isVisibleScroll">
+          <li>{{ $t('※横にスクロールできます') }}</li>
+        </template>
+        <li>{{ $t('※退院には、死亡退院を含む') }}</li>
+      </ul>
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -75,6 +77,10 @@
   padding: 8px;
   font-size: 12px;
   color: #808080;
+}
+
+.note ul {
+  list-style: none;
 }
 </style>
 
