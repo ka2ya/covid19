@@ -12,12 +12,12 @@ const attrPromise = new Promise(resolve => {
   getCSV(attrCSVUrl).then(res => {
     res.forEach(e => {
       const arr = e['リリース日'].split('/')
-      const date = new Date()
-      date.setFullYear(arr[0])
-      date.setMonth(arr[1] - 1)
-      date.setDate(arr[2])
-      date.setHours(17)
-      date.setMinutes(0)
+      const date = moment()
+      date.year(arr[0])
+      date.month(arr[1] - 1)
+      date.date(arr[2])
+      date.hour(17)
+      date.minute(0)
       e['リリース日'] = date.toISOString()
       delete e['']
     })
@@ -46,12 +46,12 @@ const countPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = new Date()
-      date.setFullYear(arr[0])
-      date.setMonth(arr[1] - 1)
-      date.setDate(arr[2])
-      date.setHours(17)
-      date.setMinutes(0)
+      const date = moment()
+      date.year(arr[0])
+      date.month(arr[1] - 1)
+      date.date(arr[2])
+      date.hour(17)
+      date.minute(0)
       e['日付'] = date.toISOString()
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
@@ -80,12 +80,12 @@ const consultsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = new Date()
-      date.setFullYear(arr[0])
-      date.setMonth(arr[1] - 1)
-      date.setDate(arr[2])
-      date.setHours(17)
-      date.setMinutes(0)
+      const date = moment()
+      date.year(arr[0])
+      date.month(arr[1] - 1)
+      date.date(arr[2])
+      date.hour(17)
+      date.minute(0)
       e['日付'] = date.toISOString()
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
@@ -93,7 +93,7 @@ const consultsPromise = new Promise(resolve => {
 
     const consults = {}
     consults.data = res
-    consults.date = moment(new Date(res[res.length - 1]['日付'])).format(
+    consults.date = moment(res[res.length - 1]['日付']).format(
       'YYYY\\/MM\\/DD HH:mm'
     )
 
@@ -117,12 +117,12 @@ const testsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = new Date()
-      date.setFullYear(arr[0])
-      date.setMonth(arr[1] - 1)
-      date.setDate(arr[2])
-      date.setHours(17)
-      date.setMinutes(0)
+      const date = moment()
+      date.year(arr[0])
+      date.month(arr[1] - 1)
+      date.date(arr[2])
+      date.hour(17)
+      date.minute(0)
       e['日付'] = date.toISOString()
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
@@ -153,12 +153,12 @@ const querentsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = new Date()
-      date.setFullYear(arr[0])
-      date.setMonth(arr[1] - 1)
-      date.setDate(arr[2])
-      date.setHours(17)
-      date.setMinutes(0)
+      const date = moment()
+      date.year(arr[0])
+      date.month(arr[1] - 1)
+      date.date(arr[2])
+      date.hour(17)
+      date.minute(0)
       e['日付'] = date.toISOString()
 
       const filelds = [
@@ -182,7 +182,7 @@ const querentsPromise = new Promise(resolve => {
 
     const querents = {}
     querents.data = res
-    querents.date = moment(new Date(res[res.length - 1]['日付'])).format(
+    querents.date = moment(res[res.length - 1]['日付']).format(
       'YYYY\\/MM\\/DD HH:mm'
     )
     data.querents = querents
