@@ -12,15 +12,15 @@ const attrPromise = new Promise(resolve => {
   getCSV(attrCSVUrl).then(res => {
     res.forEach(e => {
       const arr = e['リリース日'].split('/')
-      const date = moment()
-      date.year(arr[0])
-      date.month(arr[1] - 1)
-      date.date(arr[2])
-      date.hour(17)
-      date.minute(0)
-      e['リリース日'] = date.toISOString()
+      e['リリース日'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
       delete e['']
-    })
+    }) // Format each date
 
     const patients = {} // patients section
     patients.data = res
@@ -46,16 +46,17 @@ const countPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = moment()
-      date.year(arr[0])
-      date.month(arr[1] - 1)
-      date.date(arr[2])
-      date.hour(17)
-      date.minute(0)
-      e['日付'] = date.toISOString()
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
+
     const patientsSummary = {}
     patientsSummary.data = res
     patientsSummary.date = moment().format('YYYY\\/MM\\/DD HH:mm')
@@ -80,22 +81,20 @@ const consultsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = moment()
-      date.year(arr[0])
-      date.month(arr[1] - 1)
-      date.date(arr[2])
-      date.hour(17)
-      date.minute(0)
-      e['日付'] = date.toISOString()
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
 
     const consults = {}
     consults.data = res
-    consults.date = moment(res[res.length - 1]['日付']).format(
-      'YYYY\\/MM\\/DD HH:mm'
-    )
+    consults.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
     data.consults = consults
     resolve()
@@ -117,22 +116,20 @@ const testsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = moment()
-      date.year(arr[0])
-      date.month(arr[1] - 1)
-      date.date(arr[2])
-      date.hour(17)
-      date.minute(0)
-      e['日付'] = date.toISOString()
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
 
       e['小計'] = Number(e['小計']) // 型を変えておかないと+演算子が連結と解釈される
     })
 
     const tests = {}
     tests.data = res
-    tests.date = moment(res[res.length - 1]['日付']).format(
-      'YYYY\\/MM\\/DD HH:mm'
-    )
+    tests.date = moment().format('YYYY\\/MM\\/DD HH:mm')
 
     data.tests = tests
     resolve()
@@ -153,13 +150,13 @@ const querentsPromise = new Promise(resolve => {
 
     res.forEach(e => {
       const arr = e['日付'].split('/')
-      const date = moment()
-      date.year(arr[0])
-      date.month(arr[1] - 1)
-      date.date(arr[2])
-      date.hour(17)
-      date.minute(0)
-      e['日付'] = date.toISOString()
+      e['日付'] =
+        arr[0] +
+        '-' +
+        ('00' + arr[1]).slice(-2) +
+        '-' +
+        ('00' + arr[2]).slice(-2) +
+        'T08:00:00.000Z'
 
       const filelds = [
         '大津保健所',
@@ -182,9 +179,11 @@ const querentsPromise = new Promise(resolve => {
 
     const querents = {}
     querents.data = res
-    querents.date = moment(res[res.length - 1]['日付']).format(
-      'YYYY\\/MM\\/DD HH:mm'
+    const earlierDate = Math.min(
+      new Date(),
+      new Date(res[res.length - 1]['日付'])
     )
+    querents.date = moment(earlierDate).format('YYYY\\/MM\\/DD HH:mm')
     data.querents = querents
     resolve()
   })
