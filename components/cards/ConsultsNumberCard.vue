@@ -3,7 +3,7 @@
     <time-bar-chart
       :title="$t('帰国者・接触者専門外来受診件数')"
       :title-id="'number-of-consultation'"
-      :chart-id="'time-bar-chart-consulation'"
+      :chart-id="'time-bar-chart-number-of-consulation'"
       :chart-data="consultsGraph"
       :date="Data.consults.date"
       :unit="$t('件')"

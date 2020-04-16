@@ -3,7 +3,7 @@
     <time-bar-chart
       :title="$t('PCR検査実施件数')"
       :title-id="'number-of-tests'"
-      :chart-id="'time-bar-chart-consulation'"
+      :chart-id="'time-bar-chart-tnumber-of-tests'"
       :chart-data="testsGraph"
       :date="Data.tests.date"
       :unit="$t('件')"
