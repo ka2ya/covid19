@@ -3,7 +3,7 @@
     <time-bar-chart
       :title="$t('帰国者・接触者相談センター相談状況')"
       :title-id="'number-of-querents'"
-      :chart-id="'time-bar-chart-consulation'"
+      :chart-id="'time-bar-chart-number-of-querents'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
       :unit="$t('件')"
