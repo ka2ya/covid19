@@ -39,7 +39,7 @@ export default {
       testsGraph
     }
     // 更新頻度が少ないデータは最終更新日の表示に留める
-    data.Data.tests.date = moment(Data.querents.date).format('YYYY-MM-DD')
+    data.Data.tests.date = moment(Data.querents.date).format('YYYY/MM/DD')
     return data
   }
 }
